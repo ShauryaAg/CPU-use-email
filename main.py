@@ -18,13 +18,12 @@ while True:
     #Next, log in to the server
     with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
         server.login(senderEmail, senderPass)
-        server.connect("smtp.gmail.com",465)
         server.ehlo()
 
 
-    #Message to be sent
-    msg = "Your CPU usage is more than" + str(cpu_use_threshold)
+        #Message to be sent
+        msg = "Your CPU usage is more than" + str(cpu_use_threshold)
 
 
-    if (cpu_per_usage > cpu_use_threshold):
-        server.sendmail(senderEmail, receiverEmail, msg)
+        if (cpu_per_usage > cpu_use_threshold):
+            server.sendmail(senderEmail, receiverEmail, msg)
